@@ -1,6 +1,8 @@
 import { initTRPC } from "@trpc/server";
 
-export const t = initTRPC.create();
+import type { ContextType } from "./context.js";
+
+export const t = initTRPC.context<ContextType>().create();
 
 export const router = t.router;
 export const procedure = t.procedure;
