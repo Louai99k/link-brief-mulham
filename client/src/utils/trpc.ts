@@ -27,7 +27,7 @@ export const queryClient = new QueryClient({
 const trpcClient = createTRPCClient<AppRouter>({
   links: [
     httpBatchLink({
-      url: "http://localhost:3000",
+      url: import.meta.env.VITE_SERVER_URL,
       headers() {
         const token = useAuth.getState().accessToken;
         return {
